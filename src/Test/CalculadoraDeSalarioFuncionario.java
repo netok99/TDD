@@ -1,16 +1,24 @@
 package Test;
 
 import code.CalculadoraDeSalario;
-import code.Cargo;
+import code.cap7.Strategy.Cargo;
 import code.Funcionario;
 import static junit.framework.TestCase.assertEquals;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class CalculadoraDeSalarioFuncionario {
 
+    CalculadoraDeSalario calculadora;
+
+    @Before
+    public void initConfig() {
+        calculadora = new CalculadoraDeSalario();
+    }
+
     @Test
     public void deveCalcularSalarioparaDesenvolvedoresComSalarioAbaixoDoLimite() {
-        CalculadoraDeSalario calculadora = new CalculadoraDeSalario();
         Funcionario desenvolvedor = new Funcionario("Neto", 1500.0, Cargo.DESENVOLVEDOR);
 
         double salario = calculadora.caucularSalario(desenvolvedor);
@@ -20,7 +28,6 @@ public class CalculadoraDeSalarioFuncionario {
 
     @Test
     public void deveCalcularSalarioparaDesenvolvedoresComSalarioAcimaDoLimite() {
-        CalculadoraDeSalario calculadora = new CalculadoraDeSalario();
         Funcionario desenvolvedor = new Funcionario("Neto", 4000.0, Cargo.DESENVOLVEDOR);
 
         double salario = calculadora.caucularSalario(desenvolvedor);
@@ -31,7 +38,6 @@ public class CalculadoraDeSalarioFuncionario {
     @Test
     public void
     deveCalcularSalarioParaDBAsComSalarioAbaixoDoLimite() {
-        CalculadoraDeSalario calculadora = new CalculadoraDeSalario();
         Funcionario dba = new Funcionario("Neto", 500.0, Cargo.DBA);
 
         double salario = calculadora.caucularSalario(dba);

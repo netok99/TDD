@@ -1,5 +1,7 @@
 package code;
 
+import code.cap7.Strategy.Cargo;
+
 public class Funcionario {
 
     private String nome;
